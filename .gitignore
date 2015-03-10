@@ -1,6 +1,7 @@
 vendor/
 .idea/
 .vagrant/
+.tmp/
 node_modules/
 front/node_modules/
 front/bower_components/
