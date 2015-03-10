@@ -1,0 +1,100 @@
+@base-color: #eee;
+
+@header-height: 50px;
+@header-background-color: #ddd;
+
+@content-border: 1px solid #ccc;
+@opener-background-color: @header-background-color;
+@opener-width: 5px;
+
+@menu-width:300px;
+@menu-top:100px;
+@menu-bottom:50px;
+
+@screen-md-min: 768px;
+
+.absolute-position(@top, @bottom, @left, @right) {
+  position: absolute;
+  top:@top;
+  bottom:@bottom;
+  left:@left;
+  right:@right;
+}
+
+.scrollX {
+  overflow-x: auto;
+}
+
+.scrollY {
+  overflow-y: auto;
+}
+
+.absolute-content-part(@top, @bottom, @left, @right) {
+  .absolute-position(@top, @bottom, @left, @right);
+  .scrollX;
+  .scrollY;
+  padding: 10px;
+}
+
+header {
+  height: @header-height;
+  background-color: @header-background-color;
+  border-bottom: @content-border;
+  padding:10px 20px;
+  font-size: 1.4em;
+  line-height: 25px;
+}
+
+#content-main {
+  .absolute-content-part(@header-height, 0, 0, 0);
+  #content-menu {
+    .absolute-content-part(0, 0, 0, 'auto');
+    width: @menu-width;
+    border-right: @content-border;
+    & .nav > li > a {
+      padding: 5px 15px;
+    }
+      @media (max-width: @screen-md-min) {
+        width: 0px;
+        padding:0;
+        margin:0;
+      }
+  }
+
+  #content-right {
+    .absolute-content-part(0, 0, @menu-width, 0);
+    @media (max-width: @screen-md-min) {
+      .absolute-content-part(0, 0, 0, 0);
+    }
+
+    #content-top {
+      height: @menu-top;
+      .absolute-content-part(0, 'auto', 0, 0);
+      @media (min-width: @screen-md-min) {
+        .absolute-content-part(0, 'auto', 0, 0);
+        height: 0;
+        padding:0;
+        margin:0;
+      }
+
+    }
+
+    #content-middle {
+      .absolute-content-part(@menu-top, @menu-bottom, 0, 0);
+      border-top: @content-border;
+      border-bottom: @content-border;
+      @media (min-width: @screen-md-min) {
+        .absolute-content-part(0, @menu-bottom, 0, 0);
+        border-top: none;
+      }
+
+    }
+
+    #content-bottom {
+      .absolute-content-part('auto', 0, 0, 0);
+      height: @menu-bottom;
+    }
+  }
+
+}
+
