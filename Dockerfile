@@ -25,5 +25,5 @@ VOLUME ["/app"]
 
 WORKDIR /app
 
-CMD ["-"]
+CMD []
 
