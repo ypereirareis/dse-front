@@ -19,3 +19,5 @@ Angular frontend application to explore a MySQL database schema:
 * Databases list
 * Table list (and search)
 * Table details (primary and foreign keys, columns, indexes)
+
+
