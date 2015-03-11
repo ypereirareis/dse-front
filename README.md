@@ -1,4 +1,4 @@
-# dse-front
+# Frontend - Database Schema Explorer
 
 ## Docker image
 
