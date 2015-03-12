@@ -14,7 +14,7 @@ angular.module('databaseSchemaExplorer', ['ngAnimate', 'ngCookies', 'ngTouch', '
 
   .factory('RestClient', function (Restangular) {
     var RestClient = Restangular.withConfig(function (RestangularConfigurer) {
-      RestangularConfigurer.setBaseUrl('http://192.168.59.103:3010');
+      RestangularConfigurer.setBaseUrl('http://127.0.0.1:3010');
     });
     return RestClient;
   })

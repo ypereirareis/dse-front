@@ -2,14 +2,15 @@
 
 @header-height: 50px;
 @header-background-color: #ddd;
+@menu-background-color: #eee;
 
-@content-border: 1px solid #ccc;
+@content-border: 5px solid #ccc;
 @opener-background-color: @header-background-color;
 @opener-width: 5px;
 
 @menu-width:300px;
 @menu-top:100px;
-@menu-bottom:50px;
+@menu-bottom:50%;
 
 @screen-md-min: 768px;
 
@@ -51,14 +52,26 @@ header {
     .absolute-content-part(0, 0, 0, 'auto');
     width: @menu-width;
     border-right: @content-border;
+    background-color: @menu-background-color;
     & .nav > li > a {
       padding: 5px 15px;
     }
-      @media (max-width: @screen-md-min) {
-        width: 0px;
-        padding:0;
-        margin:0;
-      }
+
+    .glyphicon-refresh-animate {
+      -animation: spin .7s infinite linear;
+      -webkit-animation: spin2 .7s infinite linear;
+    }
+
+    @-webkit-keyframes spin2 {
+      from { -webkit-transform: rotate(0deg);}
+      to { -webkit-transform: rotate(360deg);}
+    }
+
+    @media (max-width: @screen-md-min) {
+      width: 0px;
+      padding:0;
+      margin:0;
+    }
   }
 
   #content-right {
